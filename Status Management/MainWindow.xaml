@@ -5,12 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Status_Management"
         mc:Ignorable="d"
-        Title="MainWindow" Height="5" Width="5" HorizontalAlignment="Center" Background="{x:Null}" WindowStyle="SingleBorderWindow">
-    <Grid Width="5" Height="5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="25" Width="25" HorizontalAlignment="Center" Background="#FFF9DC1C" WindowStyle="None" ShowInTaskbar="False" Foreground="#FFF9DC1C">
 
-    </Grid>
 </Window>

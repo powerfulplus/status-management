@@ -61,7 +61,7 @@ namespace Status_Management
 
 
             this.Topmost = true;
-            this.Background = Brushes.Red;
+            this.Background = Brushes.Blue;
 
             InitializeComponent();
         }
