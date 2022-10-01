@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Status_Management"
         mc:Ignorable="d"
+        Closed="Window_Closing"
         Title="MainWindow" Height="25" Width="25" HorizontalAlignment="Center" Background="#FFF9DC1C" WindowStyle="None" ShowInTaskbar="False" Foreground="#FFF9DC1C">
 
 </Window>

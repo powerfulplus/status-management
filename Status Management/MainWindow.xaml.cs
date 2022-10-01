@@ -66,9 +66,8 @@ namespace Status_Management
             InitializeComponent();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            e.Cancel = true;
+        public void Window_Closing(object sender, EventArgs e)
+        { 
             System.IO.File.Move(path2, path);
         }
 
