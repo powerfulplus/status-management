@@ -27,10 +27,12 @@ namespace Status_Management
         public string path2;
         public static string processName;
         private static Timer aTimer;
-        private static Window mainWindow;
+        private static MainWindow mainWindow;
+        public Brush BgBrush { get; set; }
 
         public MainWindow()
         {
+            // https://www.tutorialspoint.com/xaml/xaml_data_binding.htm
             mainWindow = this;
             aTimer = new System.Timers.Timer();
             aTimer.Interval = 5000;
@@ -59,25 +61,27 @@ namespace Status_Management
                 process.Kill();
             }
 
-
             this.Topmost = true;
-            this.Background = Brushes.Blue;
-
-            InitializeComponent();
+            // this.Background = Brushes.Blue;
+            // this.Background = Brushes.Red;
+            BgBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));
+            //BgBrush = "#FFF9DC1C";
+            //InitializeComponent();
+            // this.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));
         }
 
         public void Window_Closing(object sender, EventArgs e)
-        { 
+        {
             System.IO.File.Move(path2, path);
         }
 
         private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
             if (Process.GetProcessesByName(processName).Length == 0)
             {
                 // show sign
-                // mainWindow.Background = Brushes.Red;
+                //mainWindow.BgBrush = "#FFF9DC1C";
+                //mainWindow.BgBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x88, 0xcc));
             }
         }
     }
