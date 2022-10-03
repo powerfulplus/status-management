@@ -15,9 +15,33 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using System.IO;
 using System.Timers;
+using System.ComponentModel;
 
 namespace Status_Management
 {
+    public class MyItem : INotifyPropertyChanged
+    {
+        private string _bgBrush;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public MyItem(string Value = "#FFEE2211")
+        {
+            this.BgBrush = Value;
+        }
+
+        public string BgBrush
+        {
+            get { return _bgBrush; }
+            set {
+                _bgBrush = value;
+
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(""));
+                }
+            }
+        }
+    }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -28,7 +52,7 @@ namespace Status_Management
         public static string processName;
         private static Timer aTimer;
         private static MainWindow mainWindow;
-        public string BgBrush { get; set; }
+        public MyItem dataContext;
 
         public MainWindow()
         {
@@ -54,8 +78,7 @@ namespace Status_Management
 
             foreach (Process process in workers)
             {
-                //string path = process.StartInfo.FileName;
-                //string path = process.MainModule.FileName;
+                // string path = process.MainModule.FileName;
 
                 System.IO.File.Move(path, path2);
                 process.Kill();
@@ -65,10 +88,10 @@ namespace Status_Management
             // this.Background = Brushes.Blue;
             // this.Background = Brushes.Red;
             //BgBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));
-            BgBrush = "#FFEE1122";
+            // BgBrush = "#FFEE1122";
             //InitializeComponent();
-            // this.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));
-            DataContext = this;
+            dataContext = new MyItem();
+            DataContext = dataContext;
         }
 
         public void Window_Closing(object sender, EventArgs e)
@@ -81,8 +104,11 @@ namespace Status_Management
             if (Process.GetProcessesByName(processName).Length == 0)
             {
                 // show sign
-                mainWindow.BgBrush = "#FF0088cc";
-                //mainWindow.BgBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x88, 0xcc));
+                mainWindow.dataContext.BgBrush = "#FF0088cc";
+            }
+            else
+            {
+                mainWindow.dataContext.BgBrush = "#FFee11cc";
             }
         }
     }
