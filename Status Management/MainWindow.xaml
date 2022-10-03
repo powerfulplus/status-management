@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Status_Management"
         mc:Ignorable="d"
         Closed="Window_Closing"
-        Title="MainWindow" Height="25" Width="25" HorizontalAlignment="Center"
+        Title="Status Management" Height="25" Width="25" HorizontalAlignment="Center"
         Background="{Binding BgBrush}"
         WindowStyle="None" ShowInTaskbar="False" Foreground="#FFF9DC1C" Left="0" Top="0">
 

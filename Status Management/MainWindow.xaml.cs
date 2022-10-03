@@ -28,7 +28,7 @@ namespace Status_Management
         public static string processName;
         private static Timer aTimer;
         private static MainWindow mainWindow;
-        public Brush BgBrush { get; set; }
+        public string BgBrush { get; set; }
 
         public MainWindow()
         {
@@ -64,10 +64,11 @@ namespace Status_Management
             this.Topmost = true;
             // this.Background = Brushes.Blue;
             // this.Background = Brushes.Red;
-            BgBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));
-            //BgBrush = "#FFF9DC1C";
+            //BgBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));
+            BgBrush = "#FFEE1122";
             //InitializeComponent();
             // this.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0, 0));
+            DataContext = this;
         }
 
         public void Window_Closing(object sender, EventArgs e)
@@ -80,7 +81,7 @@ namespace Status_Management
             if (Process.GetProcessesByName(processName).Length == 0)
             {
                 // show sign
-                //mainWindow.BgBrush = "#FFF9DC1C";
+                mainWindow.BgBrush = "#FF0088cc";
                 //mainWindow.BgBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x88, 0xcc));
             }
         }
